@@ -2,7 +2,7 @@ package bandasgrails
 
 class Local {
     String nome
-    int capacidade
+    Integer capacidade
     static hasMany = [show:Show]
     static constraints = {
     }

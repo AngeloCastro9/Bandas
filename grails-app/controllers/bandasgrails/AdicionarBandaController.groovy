@@ -11,27 +11,31 @@ class AdicionarBandaController {
     def adicionar(){
         Banda novaBanda = new Banda()
         novaBanda.nome = params.nome
-
+        novaBanda.bandaEnum
         render(template: "/adicionarBanda/form", model: [bandas:novaBanda])
 
     }
     def salvar(){
         Banda banda = null
+        BandaEnum bandaEnum = null
         if(params.id)
         {
             banda = Banda.get(params.id)
+
+
         }else{
             banda = new Banda()
         }
 
         banda.nome = params.nome
-        banda.bandaEnum
-        //banda.genero = params.genero
-        if(!banda.hasErrors()){
-            banda.save(flush:true)
+        banda.bandaEnum = params.banda_enum
+        println(params)
+        if(banda.save(flush:true)){
+
             render("Salvou com sucesso")
         } else {
-            render("Não salvoou")
+            println(banda.errors)
+            render("Não salvou")
         }
 
     }
@@ -45,5 +49,6 @@ class AdicionarBandaController {
         def lista = Banda.list()
         render(template: "/adicionarBanda/lista", model: [bandas: lista])
     }
+
 
 }

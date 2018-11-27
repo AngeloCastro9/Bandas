@@ -10,7 +10,7 @@ class AdicionaLocalController {
 
     def adicionar(){
         Local novoLocal = new Local()
-        novoLocal.nome = params.nome
+        novoLocal.nome = null
         novoLocal.capacidade = 0
         render(template: "/adicionaLocal/form", model: [locais:novoLocal])
 
@@ -25,7 +25,7 @@ class AdicionaLocalController {
         }
 
         local.nome = params.nome
-        local.capacidade = 0
+        local.capacidade = params.capacidade.toInteger()
         if(!local.hasErrors()){
             local.save(flush:true)
             render("Salvou com sucesso")
@@ -35,7 +35,7 @@ class AdicionaLocalController {
 
     }
     def alterar(){
-        Local local = Banda.get(params.id)
+        Local local = Local.get(params.id)
         render(template:"/adicionaLocal/form", model:[locais: local])
     }
     def excluir(){
