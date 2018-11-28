@@ -1,4 +1,4 @@
-
+<g:if test="${bandas.size()> 0}">
     <table>
         <tr>
             <th><g:message code="adicionarBanda.nomeDaBanda.message" /></th>
@@ -20,6 +20,7 @@
             </tr>
         </g:each>
     </table>
+</g:if>
 <g:else>
     <g:message code="adicionarBanda.faltaDeBandas.message" />
 </g:else>

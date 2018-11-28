@@ -22,6 +22,5 @@
     </table>
 </g:if>
 <g:else>
-    %{--mudar para Falta Locais depois--}%
-    <g:message code="adicionarBanda.faltaDeBandas.message" />
+    <g:message code="adicionarBanda.faltaDeLocal.message" />
 </g:else>

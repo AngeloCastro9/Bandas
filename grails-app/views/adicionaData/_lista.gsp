@@ -20,5 +20,5 @@
     </table>
 </g:if>
 <g:else>
-    <g:message code="adicionarBanda.faltaDeBandas.message" />
+    <g:message code="adicionarBanda.faltaDeDatas.message" />
 </g:else>

@@ -1,6 +1,6 @@
 package bandasgrails
 
-import java.text.SimpleDateFormat
+
 
 class AdicionaDataController {
 
@@ -53,6 +53,9 @@ class AdicionaDataController {
             show.delete(flush:true)
             def lista = Show.list()
             render(template: "/adicionaData/lista", model: [shows: show])
+        }
+        def irParaBandas(){
+            render(template: "/adicionarBanda/lista", model: [shows:show])
         }
 
     }
