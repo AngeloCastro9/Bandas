@@ -8,15 +8,16 @@
         </tr>
         <g:each var="show" in="${shows}">
             <tr>
-                <td>${show.data}</td>
+                <td><g:formatDate format="dd-MM-yyyy" date="${show.data}"/></td>
                 <td>
-                    <g:remoteLink controller="adicionarBanda" action="alterar" update="divForm" id="${show.id}">Alterar</g:remoteLink>
+                    <g:remoteLink controller="adicionaData" action="alterar" update="divForm" id="${show.id}">Alterar</g:remoteLink>
 
                     <a href="#" onclick="excluir('${show.id}')">Excluir</a>
                 </td>
 
             </tr>
         </g:each>
+
     </table>
 </g:if>
 <g:else>

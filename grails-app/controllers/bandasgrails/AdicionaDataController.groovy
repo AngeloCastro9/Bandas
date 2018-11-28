@@ -4,20 +4,22 @@ package bandasgrails
 
 class AdicionaDataController {
 
-        def index() {
-            def lista = Show.list()
+    def index() {
+        def lista = Show.list()
+        render(view:"/adicionaData/index", model: [shows: lista])
+    }
 
-            render(view:"/adicionaData/index", model: [shows: lista])
-        }
+    def adicionar(){
+        Show show = new Show()
+        Banda banda = new Banda()
+        show.data = params.data
+        banda.id = params.id
+        render(template: "/adicionaData/form", model: [shows: show, bandas: banda])
 
-        def adicionar(){
-            Show show = new Show()
-            show.data = params.data
-            render(template: "/adicionaData/form", model: [shows: show])
-
-        }
+    }
     def salvar(){
         Show show = null
+        Banda banda = null
         if(params.id)
         {
             show = Show.get(params.id)
@@ -35,6 +37,8 @@ class AdicionaDataController {
         String currentTime = sdf.format(dt);
         show.setData(sdf.parse( request.getParameter("data")));
         println(params)
+        banda.id = params.id
+        banda.nome = params.nome
         if(show.save(flush:true)){
 
             render("Salvou com sucesso")
@@ -44,18 +48,14 @@ class AdicionaDataController {
         }
 
     }
-        def alterar(){
-            Show show = Show.get(params.id)
-            render(template:"/adicionaData/form", model:[shows: show])
-        }
-        def excluir(){
-            Show show = Show.get(params.id)
-            show.delete(flush:true)
-            def lista = Show.list()
-            render(template: "/adicionaData/lista", model: [shows: show])
-        }
-        def irParaBandas(){
-            render(template: "/adicionarBanda/lista", model: [shows:show])
-        }
-
+    def alterar(){
+        Show show = Show.get(params.id)
+        render(template:"/adicionaData/form", model:[shows: show])
     }
+    def excluir(){
+        Show show = Show.get(params.id)
+        show.delete(flush:true)
+        render(template: "/adicionaData/lista", model: [shows: show])
+    }
+
+}

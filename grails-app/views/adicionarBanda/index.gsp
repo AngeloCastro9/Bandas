@@ -24,7 +24,7 @@
     </script>
 </head>
 <body>
-<g:remoteLink controller="adicionarBanda" action="adicionar" update="divForm">Adicionar</g:remoteLink><a href="/adicionarBanda/index">Cadastrar Bandas</a>
+<g:remoteLink controller="adicionarBanda" action="adicionar" update="divForm">Adicionar</g:remoteLink>
 <a href="/adicionaLocal/index">Cadastrar Local</a>
 <a href="/adicionaData/index">Cadastrar Show</a>
 
