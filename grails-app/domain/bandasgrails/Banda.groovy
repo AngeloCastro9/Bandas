@@ -14,7 +14,7 @@ class Banda {
     }
 
     String toString() {
-        return "${bandaEnum}"
+        return "${nome}"
     }
 }
 

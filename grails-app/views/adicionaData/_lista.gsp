@@ -3,11 +3,15 @@
         <tr>
             <th><g:message code="adicionarBanda.nomeDaBanda.message" /></th>
             <th><g:message code="adicionarBanda.generoDaBanda.message" /></th>
+            <th><g:message code="adicionarBanda.nomeDaBanda.message" /></th>
 
 
         </tr>
         <g:each var="show" in="${shows}">
             <tr>
+
+                    <td>${show.banda.sort{it.nome}}</td>
+
                 <td><g:formatDate format="dd-MM-yyyy" date="${show.data}"/></td>
                 <td>
                     <g:remoteLink controller="adicionaData" action="alterar" update="divForm" id="${show.id}">Alterar</g:remoteLink>

@@ -18,7 +18,6 @@
         }
 
         function cancelar() {
-            //Em vez de usar um Jquery, deve-se usar um $
             $("#divForm").html("")
         }
     </script>
@@ -30,7 +29,8 @@
 
 
 <div id="divLista">
-    <g:render template="lista" model="[shows: shows]"></g:render>
+    <g:render template="lista" model="[shows: shows, bandas:bandas]"></g:render>
+
 </div>
 
 
