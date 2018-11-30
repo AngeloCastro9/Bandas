@@ -34,9 +34,14 @@ class AdicionaDataController {
         if(params.id)
         {
             show = Show.get(params.id)
-            //banda = Banda.get(params.id)
+            show.banda = Banda.get(params.id)
 
-
+            params.bandas.each {
+               Banda bandas = Banda.get(it)
+               show.removeFromBanda(bandas)
+               println(params.bandas)
+           }
+            show.delete()
         }else{
             show = new Show()
         }
@@ -46,19 +51,11 @@ class AdicionaDataController {
         String currentTime = sdf.format(dt)
         show.setData(sdf.parse( request.getParameter("data")))
 
-
-       // banda.id = params.id
-//       show.addToBanda(Banda.get(params.bandas)).each{
-//       println("Bandas ${it}")}
-
-//       Banda.get(params.bandas).each{
-//            show.addToBanda(Banda.get(params.bandas))
-//           println("Bandas ${it.id}")}
-
         params.bandas.each {
             Banda banda1 = Banda.get(it)
             show.addToBanda(banda1)
             println(params.bandas)
+            show.save(flush:true)
         }
 
         if(show.save(flush:true)){

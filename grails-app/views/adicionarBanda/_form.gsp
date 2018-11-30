@@ -1,4 +1,4 @@
-<%@ page import="bandasgrails.BandaEnum" %>
+<%@ page import="learning_grails.BandaEnum" %>
 <div id="divMenssagem"></div>
 
 <g:formRemote name="frmProduto" url="[controller: 'adicionarBanda', action: 'salvar']" update="divMenssagem" onSuccess="carregarLista()">
