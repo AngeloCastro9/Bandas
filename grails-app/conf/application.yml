@@ -94,7 +94,7 @@ dataSource:
     driverClassName: com.mysql.jdbc.Driver
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     username: root
-    password: H1m6d8f9
+    password: root
 
 
 environments:
