@@ -1,4 +1,4 @@
-<%@ page import="bandasgrails.Banda; learning_grails.BandaEnum" %>
+<%@ page import="bandasgrails.Banda;bandasgrails.BandaEnum" %>
 <div id="divMenssagem"></div>
 <g:formRemote name="frmProduto" url="[controller: 'adicionaData', action: 'salvar']" update="divMenssagem" onSuccess="carregarLista()">
     <g:select name="bandas" from="${bandasgrails.Banda.list()}" optionKey="id" value="${shows.banda}"
